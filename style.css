@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    text-align: center;
+    background-color: silver;
+    font-family: Verdana;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+.clearfix{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container{
+    padding: 2%;
+    height: 100vh;
+}
+.container p{
+    margin: 1em;
+}
+@keyframes rotate{
+    0%{transform: rotateZ(0deg);}
+    50%{transform: rotateZ(360deg);}
+    100%{transform: rotateZ(0deg);}
+}
+.logo{
+    margin: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.logo img{
+    max-width: 100px;
+    animation: rotate 4s linear infinite;
+}
+.city{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+}
+.city:focus::placeholder{
+    color: transparent;
+}
+.city:focus{
+    outline: none;
+}
+.weather-text{
+    font-size: 1.3em;
+    text-transform: capitalize;
+    text-transform: super;
+}
+.weather-card{
+    margin: 5%;
+    padding: 2% 0;
+    background-color: white;
+    color: #333333;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px;
+    display: none;
+}
+.weather-icon .icon{
+    width: 100px;
+}
+.temp{
+    font-size: 1.3em;
+    color: #5555ff;
+    /* color: #00aa00; */
+}
+.set-rise{
+    position: relative;
+    width: 100%;
+    padding: 5%;
+}
+.set-rise .rise{
+    float: left;
+}
+.set-rise .set{
+    float: right;
+}
+
+.more-info span{
+    margin: 0.5em;
+}
+
+footer{
+    border-top: 1px solid white ;
+    z-index: -1;
+    width: 96%;
+    position: fixed;
+    bottom: 0;
+}
