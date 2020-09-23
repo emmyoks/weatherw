@@ -37,15 +37,39 @@ $(document).ready(function(){
     }
     const key='23e99d389b359c68610491b7375742b8' ;
     let userCity;
-    $(".get-w").click(()=>{
-        userCity = $(".city").val();
-        console.log(userCity)
-        $(".logo").show()
-        getWeather()
+    
+   $(".weather-card").ready(()=>{
+    navigator.geolocation.getCurrentPosition( pos => {
+        let lati = pos.coords.latitude;
+        let long = pos.coords.longitude;
+
+        axios.get('https://api.openweathermap.org/data/2.5/weather',{
+            params:{lat:lati, lon:long,units:'metric',appid:key}
+        })
+        .then(res=>{
+            setupUi(res)
+        })
+        .catch(err=> foundErr(err))
+    });
+   })
+
+    $(document).keypress(e=>{
+        if(e.keyCode === 13){
+            getW()
+        }
     })
 
+    $(".get-w").click(()=>{
+       getW()
+    })
+
+    function getW(){
+        userCity = $(".city").val();
+        $(".logo").show()
+        getWeather()
+    }
+
     function getWeather(){
-        // let dMock ={data:{"coord":{"lon":4.83,"lat":7.1},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":28.11,"feels_like":31.76,"temp_min":28.11,"temp_max":28.11,"pressure":1014,"humidity":70,"sea_level":1014,"grnd_level":986},"visibility":10000,"wind":{"speed":1.58,"deg":311},"clouds":{"all":98},"dt":1600771514,"sys":{"country":"NG","sunrise":1600752594,"sunset":1600796204},"timezone":3600,"id":2326171,"name":"Ondo","cod":200}}
         axios.get('https://api.openweathermap.org/data/2.5/weather',{
             params:{q:userCity,units:'metric',appid:key}
         })
@@ -53,14 +77,15 @@ $(document).ready(function(){
             setupUi(res)
         })
         .catch(err=> foundErr(err))
-        // setupUi(dMock)
+
     }
+
     function setupUi(res){
         $(".error").remove();
         userCity = res.data.name;
         $(".weather-text").text(`${res.data.weather[0].description}
          in ${userCity}.`);
-        $(".weather-icon").html(`<img class="icon"src="http://api.openweathermap.org/img/w/${res.data.weather[0].icon}.png">`);
+        $(".weather-icon").html(`<img class="icon"src="https://api.openweathermap.org/img/w/${res.data.weather[0].icon}.png">`);
         $(".temp").html(`${Math.round(res.data.main.temp)}<sub>c</sub> 
         <p>feels like ${res.data.main.feels_like}<sub>c</sub></p>`);
         if(res.data.main.temp >=30 ){
@@ -95,4 +120,3 @@ $(document).ready(function(){
         $(errMsg).insertAfter(".weather-card");
     }
 })
-// http://api.openweathermap.org/data/2.5/weather?q=Ondo&units=metric&appid=23e99d389b359c68610491b7375742b8

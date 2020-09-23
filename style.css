@@ -80,16 +80,17 @@ body{
     width: 100%;
     padding: 5%;
 }
-.set-rise .rise{
+.set-rise .rise, .left{
     float: left;
 }
-.set-rise .set{
+.set-rise .set, .right{
     float: right;
 }
 
-.more-info span{
+.right, .left{
     margin: 0.5em;
 }
+
 
 footer{
     border-top: 1px solid white ;
