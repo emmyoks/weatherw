@@ -83,6 +83,7 @@ $(document).ready(function(){
     function setupUi(res){
         $(".error").remove();
         userCity = res.data.name;
+        $(".city").val(userCity)
         $(".weather-text").text(`${res.data.weather[0].description}
          in ${userCity}.`);
         $(".weather-icon").html(`<img class="icon"src="https://api.openweathermap.org/img/w/${res.data.weather[0].icon}.png">`);
