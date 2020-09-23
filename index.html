@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/e06ce451e3.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png">
+    <link type="text/css" rel="stylesheet" href="style.css" >
+    <title> WeatherWiz </title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="favicon.png">
+        </div>
+        <p class="date"></p>
+        <p class="time"></p>
+        <input class="city" placeholder="City">
+        <i class="fas fa-magic get-w"></i>
+        <div class="weather-card">
+            <p class="weather-text"></p>
+            <div class="weather-icon">
+                
+            </div>
+            <p class="temp">33 deg</p>
+            <div class="set-rise clearfix">
+                <div class="rise"><p class="rise-time"></p>Sunrise</div>
+                <div class="set"><p class="set-time"></p>Sunset</div>
+            </div>
+            <div class="more-info">
+                Latitude:<span class="lat"></span>     Longitude:<span class="lon">
+                </span>
+            </div>
+            <div class="more-info">
+                Humidity:<span class="hum"></span>      Pressure:<span class="pres">
+                </span>
+            </div>
+            <div class="more-info">
+                Sea Lvl:<span class="seal"></span>      Ground Lvl:<span class="grol">
+                </span>
+            </div>
+            <div class="more-info">
+                Wind Speed:<span class="winds"></span>      Wind Deg:<span class="windd">
+                </span>
+            </div>
+            
+        </div>
+
+        <footer>&copy; WeatherWiz <span class="current-year"></span> </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
