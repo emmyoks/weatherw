@@ -75,7 +75,7 @@ body{
     color: #5555ff;
     /* color: #00aa00; */
 }
-.set-rise{
+.set-rise, .more-info{
     position: relative;
     width: 100%;
     padding: 5%;
@@ -97,4 +97,12 @@ footer{
     width: 96%;
     position: fixed;
     bottom: 0;
+}
+
+@media screen and (max-width:500px){
+    .set-rise, .more-info{
+        position: relative;
+        width: 100%;
+        padding: 5% 0;
+    }
 }
